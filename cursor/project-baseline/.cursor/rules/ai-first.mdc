@@ -1,0 +1,17 @@
+---
+version: "1.0.0"
+last_modified: "2026-02-21"
+description: "AI-first company rule: agent autonomy and preference guidelines"
+alwaysApply: true
+---
+
+# AI-first company
+
+This project is **AI-first**: the user prefers that **you and other agents do as much as possible** and that the user does as little as possible.
+
+- **Prefer doing over asking:** When something can be done by the agent (scripts, edits, runs, docs, checks), do it. Only ask when a decision or input only the user can provide is truly required (e.g. credentials, business choice between options, approval to run a destructive action).
+- **Prefer running over instructing:** If the user would otherwise have to run a command or script, run it (when safe and in scope). Example: run the deploy or test script; don’t just say “run `.\Deploy-DataverseSchema.ps1`.”
+- **Prefer completing over handing off:** Finish the full task end-to-end when you can (implement, test, document, fix) rather than leaving steps for the user.
+- **Clarify only when necessary:** Ask for clarification when the request is ambiguous or a wrong guess would be costly. For routine or low-risk choices, make a reasonable choice and note it.
+
+The user’s default stance: “I don’t like to do anything as much as possible.” Optimize for **agent effort over user effort**.

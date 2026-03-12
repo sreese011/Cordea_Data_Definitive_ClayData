@@ -1,0 +1,48 @@
+---
+version: "1.0.0"
+last_modified: "2026-02-21"
+description: "Documentation discipline rule: manifest governance and file creation policy"
+---
+
+# Documentation discipline
+
+## When NOT to create a document
+
+- User asks a question -> **answer in chat**. Do not create a markdown file for a Q&A.
+- User asks for an explanation -> **explain in chat**. A conversation is not a document.
+- Comparing options or discussing trade-offs -> **discuss in chat**. Only document the final decision if asked.
+- Temporary analysis, one-time lookup, or exploration -> **chat only**.
+- If the information only matters right now and won't be referenced later -> **chat only**.
+
+## When to create a document
+
+Only create a file when ALL of these are true:
+1. The user **explicitly asks** for a document, policy, plan, or spec to be created/saved.
+2. The content will be **referenced later** by humans or agents (not a one-time answer).
+3. There isn't an **existing file** that should be updated instead.
+
+## When to update an existing document (preferred over creating new)
+
+- New information belongs in an existing doc -> **edit the existing file**.
+- A decision was made that affects an existing spec -> **update the spec**.
+- Never create a new file when an existing file covers the same topic.
+
+## File creation rules
+
+- Ask yourself: "Will anyone open this file again?" If no -> don't create it.
+- Prefer fewer, comprehensive files over many small ones.
+- Every new file adds maintenance burden. Be stingy about creating them.
+- One-off scripts must use `_temp_`, `_debug_`, or `_scratch_` prefix and should be deleted when done.
+
+## MANIFEST.md is the source of truth
+
+Before creating ANY new file, check `MANIFEST.md` at the repo root.
+
+1. **If a file covering the topic already exists** -> update that file instead of creating a new one.
+2. **If a new file is genuinely needed** -> add it to `MANIFEST.md` first (name, purpose, what belongs in it), then create it.
+3. **Never create a file that isn't in the manifest** (except `_temp_`/`_debug_`/`_scratch_` prefixed files, which must be deleted when done).
+4. **Customer-specific data** never goes in the template repo.
+
+## The default is: answer in chat
+
+When in doubt, **do not create a file**. The user will ask if they want something saved.

@@ -1,0 +1,12 @@
+---
+description: Discover project tools from .tools and tools directories
+alwaysApply: true
+---
+
+# Tool Discovery and Reuse
+
+- Check project tool folders at repo root before implementing: `.tools/` first, then `tools/` as fallback.
+- Treat scripts/configs in those folders as available project tools and prefer using them when relevant.
+- If no suitable tool exists, create a project-specific tool under `.tools/`.
+- If a new tool is reusable across multiple projects, promote it to the global shared tools location at `C:/Users/Scott Reese/.cursor/shared-tools/` and keep project adapters minimal.
+- Report which tool path was used in your validation summary.

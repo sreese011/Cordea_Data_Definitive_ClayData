@@ -1,0 +1,13 @@
+{
+    "window.commandCenter": true,
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "cursor.composer.usageSummaryDisplay": "always",
+    "cursor.diffs.useCharacterLevelDiffs": true,
+    "cursor.terminal.usePreviewBox": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "git.openRepositoryInParentFolders": "always",
+    "workbench.preferredDarkColorTheme": "Abyss",
+    "workbench.preferredHighContrastColorTheme": "Default Light+",
+    "window.systemColorTheme": "light"
+}

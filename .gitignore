@@ -1,0 +1,20 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Local scratch
+_temp_*
+_debug_*
+_scratch_*

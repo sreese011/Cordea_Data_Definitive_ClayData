@@ -1,0 +1,34 @@
+---
+version: "1.0.0"
+last_modified: "2026-02-21"
+description: "Versioning and commit policy: version bumping and commit workflow rules"
+---
+
+# Versioning and commit rules
+
+Follow the policy in `docs/processes/versioning-and-commit-policy.md`. Key rules:
+
+## File classification
+- **Core files** (platform module scripts, architecture docs, config templates): require version header, release notes, semantic versioning.
+- **One-off files** (prefixed `_temp_`, `_debug_`, `_scratch_`): no versioning, never commit, periodically archive/delete.
+
+## Editing
+- Always use **in-place edits** (StrReplace). Do NOT rewrite entire files.
+- When modifying a Core file substantively: bump version in header and add a release notes entry.
+- Do NOT bump version for typos, formatting, or comment-only changes.
+
+## Committing
+- **Do NOT commit during iteration.** Only commit when the script/doc is working and validated (tests pass or user confirms).
+- **Do NOT commit trivial-only changes** (punctuation, formatting). Batch with next real change.
+- **Do NOT commit one-off/temp files.**
+- Commit message format: `[platform] Brief description (vX.Y.Z)`
+- Every commit to a Core file = a known-good rollback point.
+
+## New Core files
+- Include full version header (version 1.0.0, classification: core, initial release note).
+- PowerShell: use `<# .VERSION ... .RELEASE_NOTES ... #>` block.
+- Markdown: use YAML frontmatter `--- version: ... ---`.
+- JSON: use `"_meta": { "version": ... }` block.
+
+## Existing files without headers
+- Add header during next substantive edit, not as a standalone commit.

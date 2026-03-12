@@ -1,0 +1,18 @@
+---
+version: "1.0.0"
+last_modified: "2026-02-21"
+description: "Multi-agent delegation rule: when to invoke which agent"
+alwaysApply: true
+---
+
+# Multi-agent delegation
+
+This project uses Cursor **subagents** (see `.cursor/agents/*.md` and **AGENTS.md**). Cursor is designed so the main agent **delegates by invoking a subagent**; that subagent then runs in the same chat and appears on screen (the user interacts with the main agent and sees the other agents building). Delegate when the user's request clearly fits one of these:
+
+- **documentation-agent**: Extracting learnings from a chat transcript; adding or updating docs in `docs/knowledge/` or `docs/processes/`; writing step-by-step or process documentation; wiki sync; work items. Trigger phrases: "document this", "add to knowledge", "extract from this transcript", "write a process for...", "sync wiki", "share with Richard".
+- **scripting-agent**: Writing or editing PowerShell scripts; Dataverse or Azure DevOps API usage; debugging scripts in Scripts/, Azure Setup/, or Power Platform/. Trigger phrases: "write a script", "fix this script", "Dataverse API", "Azure DevOps API", "PowerShell".
+- **qa-agent**: Questions about the project ("how do we...", "where is...", "why did we..."); explaining decisions or pointing to docs. Trigger phrases: "how do we", "where is", "what was the reason", "why did we".
+
+**How to delegate:** Use Cursor's subagent mechanism to invoke the appropriate agent (e.g. delegate to documentation-agent, scripting-agent, or qa-agent) so it runs in this chat. For mixed tasks (e.g. "document what we did and then fix the script"), invoke the relevant subagents in sequence.
+
+**Fallback:** If subagent invocation is not available or not working in your environment, tell the user which agent to use and give them the exact prompt to paste in a new chat with that agent (see AGENTS.md for "Use the documentation-agent" etc.).
