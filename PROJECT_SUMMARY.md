@@ -30,7 +30,7 @@ This document consolidates the project goal, plan, settings, and all documentati
 
 ### One-time setup
 1. Copy `config/example.env` to `.env`
-2. Set `DEFINITIVE_USERNAME` and `DEFINITIVE_PASSWORD` (for API mode)
+2. Set `DEFINITIVE_USERNAME` (for API mode). Password is prompted at runtime when omitted.
 3. `pip install -r requirements.txt`
 
 ### Run the workflow
@@ -47,7 +47,7 @@ This document consolidates the project goal, plan, settings, and all documentati
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `DEFINITIVE_USERNAME` | API mode | Definitive Healthcare login |
-| `DEFINITIVE_PASSWORD` | API mode | Definitive Healthcare password |
+| `DEFINITIVE_PASSWORD` | No | Omit to be prompted at runtime (recommended—never store in file) |
 | `REPORT_SAVE_FOLDER` | No | Folder for API downloads. Default: `Contact Lists/` |
 | `MAPBOX_ACCESS_TOKEN` | No | Improves city→ZIP geocoding (optional) |
 

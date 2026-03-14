@@ -18,6 +18,7 @@ Usage:
 """
 
 import csv
+import getpass
 import io
 import os
 import platform
@@ -300,9 +301,16 @@ def main():
     if use_api and REQUESTS_AVAILABLE:
         user = os.environ.get("DEFINITIVE_USERNAME", "").strip()
         pw = os.environ.get("DEFINITIVE_PASSWORD", "").strip()
-        if not user or not pw:
-            print("API mode requires DEFINITIVE_USERNAME and DEFINITIVE_PASSWORD in .env")
+        if not pw and user:
+            try:
+                pw = getpass.getpass("Definitive password: ")
+            except (EOFError, KeyboardInterrupt):
+                pw = ""
+        if not user:
+            print("API mode requires DEFINITIVE_USERNAME in .env (password will be prompted)")
             print("Falling back to manual export flow.\n")
+        elif not pw:
+            print("Password required. Falling back to manual export flow.\n")
         else:
             token = get_definitive_token(user, pw)
             if not token:

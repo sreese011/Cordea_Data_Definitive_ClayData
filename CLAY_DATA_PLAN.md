@@ -15,7 +15,7 @@ Copy `config/example.env` to `.env` and fill in your values:
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `DEFINITIVE_USERNAME` | API mode (yes) | Definitive Healthcare login |
-| `DEFINITIVE_PASSWORD` | API mode (yes) | Definitive Healthcare password |
+| `DEFINITIVE_PASSWORD` | No | Omit to be prompted at runtime (recommended—never store password in file) |
 | `REPORT_SAVE_FOLDER` | No | Folder for API downloads. Default: `Contact Lists/` in project root |
 | `MAPBOX_ACCESS_TOKEN` | No | Optional; improves city→ZIP geocoding |
 
